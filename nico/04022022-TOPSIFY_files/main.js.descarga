@@ -1,0 +1,92 @@
+var workspace, coverContainer, coverElement, covers;
+
+function Init() {
+  workspace = document.getElementsByClassName("workspace")[0];
+  coverContainer = document.getElementsByClassName(
+    "workspace__cover-container"
+  )[0];
+
+  covers = [
+    {
+      background: 1,
+      // 4RZHGMiPzjc0tjTaKhHuiv?si=16a6b33577244a97
+      href: "spotify:playlist:4RZHGMiPzjc0tjTaKhHuiv",
+      label: "Románticas en Español 💘",
+      emoji: "01",
+    },
+    {
+      background: 2,
+      href: "spotify:playlist:5q3Tpr0c2oX4dOOApjKYV2",
+      label: "Perronas Románticas",
+      emoji: "02",
+    },
+    {
+      background: 3,
+      href: "spotify:playlist:2Jg66f14ScWSebTt7a5T2h",
+      label: "Desamor",
+      emoji: "03",
+    },
+    {
+      background: 4,
+      href: "spotify:playlist:4FDDwiq4eXvI5nwKHhObw0",
+      label: "Canciones Viejitas Pero Bonitas en Español",
+      emoji: "04",
+    },
+  ];
+
+  let index = 1;
+  let emoji = 1;
+  covers.forEach(function(cover) {
+    coverElement = document.createElement("div");
+    coverElement.className = "workspace__cover"
+    coverElement.style.background =
+      "url(./04022022-TOPSIFY_files/Hover0" + cover.background + ".jpg";
+    /**
+     * Element click listener
+     */
+    coverElement.addEventListener("click", function(event) {
+      fbq("trackCustom", "Click Playlist", {
+        eventValue: cover.label,
+      });
+      window.open(cover.href);
+    });
+
+    effect1 = document.createElement("span");
+    effect1.className = "hide effect_" + index;
+
+    effect2 = document.createElement("span");
+    effect2.className = "hide effect_" + index;
+
+    effect3 = document.createElement("span");
+    effect3.className = "hide effect_" + index;
+    
+
+    playElement = document.createElement("span");
+    playElement.className = "workspace__play cupido_" + cover.background;
+
+    imgElement = document.createElement("img");
+    imgElement.src = "./04022022-TOPSIFY_files/cupido_" + cover.emoji + ".png";
+    imgElement.className = "workspace__emoji" + emoji;
+
+    // playText = document.createElement("img");
+    // playText.src = "./04022022-TOPSIFY_files/play.png";
+    // playText.className = "workspace__play-text";
+
+    // playElement.appendChild(playText);
+
+    index++;
+    emoji++;
+
+    playElement.appendChild(imgElement);
+    coverElement.appendChild(playElement);
+    coverElement.appendChild(effect1);
+    coverElement.appendChild(effect2);
+    coverElement.appendChild(effect3);
+
+    coverContainer.appendChild(coverElement);
+  });
+}
+
+window.onload = function() {
+  Init();
+};
