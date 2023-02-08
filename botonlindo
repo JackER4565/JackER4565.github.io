@@ -1,0 +1,56 @@
+<style>
+body{
+background-color: #000000;
+}
+.button {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 12px;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 1.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button:after {
+  content: "";
+  background: rgba(255,255,255,0.5);
+  display: block;
+  position: absolute;
+  opacity: 0;
+  width: 0%;
+  height: 0%;
+  bottom: 0;
+  left: 0;
+  top:0;
+  right:0;
+  margin: auto;
+  transition: all 1.6s;
+  animation: dsa 1s linear;
+}
+.button:hover:after{
+	width: 1000%;
+    height: 100%;
+    /*animation: 1s forwards;*/
+    animation: asd 1s linear;
+}
+
+@keyframes asd {
+	0%{ opacity:1;}
+    100%{opacity:0;}
+	
+}
+@keyframes dsa {
+	0%{ opacity:0;}
+    100%{opacity:1;}
+	
+}
+
+
+</style>
