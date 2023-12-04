@@ -1,5 +1,6 @@
 // get mails, subject and body from params and create a new mail vanilla javascript
 
+function test() {
 //get params
 const params = new URLSearchParams(window.location.search);
 const mail = params.get('mail');
@@ -14,7 +15,5 @@ mailTo.rel = 'noopener noreferrer';
 mailTo.href = `mailto:${mail}?subject=${subject}&body=${body}`;
 mailTo.click();
 
-//redirect to index.html
-window.location.href = 'index.html';
-
 // Path: index.js
+}
