@@ -18,9 +18,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     
     processButton.addEventListener('click', async () => {
-        const text = textArea.value;
+        let text = textArea.value;
         if (!text.trim()) return;
-
+        
+        // Remove everything before and including "Account Transactions"
+        text = text.split("Account Transactions").pop() || text;
+        
+        // Remove "AvatarChange avatar" and everything after it
+        text = text.split("AvatarChange avatar")[0] || text;
+        
         const lines = text.split('\n').filter(line => line.trim());
         const data = [];
         
