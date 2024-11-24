@@ -16,13 +16,21 @@
             <textarea id="dataInput" rows="10" cols="50" placeholder="Paste your data here..." autofocus></textarea>
             <div class="summary">
                 <h3>Summary</h3>
-                <p>Total Spent: <span id="totalSpent">$0</span></p>
+                <p>Total Spent: </p><span id="totalSpent" class="highlight-total">$0</span>
             </div>
             <div class="how-to-use">
                 <h3>How to use</h3>
                 <p>1. Copy your data from <a href="https://www.pathofexile.com/my-account/transactions" target="_blank" rel="noopener">the POE website.</a> (you can just CTRL+A -> CTRL+C the whole page)</p>
                 <p>2. Paste it in the text area</p>
                 <p>3. Click on the Process Data button</p>
+            </div>
+            <div class="forum">
+                <h3>Lifetime Purchases</h3>
+                <p>You can check FAQs by visiting <a href="https://www.pathofexile.com/forum/view-thread/3587981" target="_blank" rel="noopener">Announcements - Path of Exile 2 Early Access FAQ - Forum</a>.</p>
+                <p>
+                    Your valid purchases will include any purchase that was made with dollars instead of points. Points keys that were redeemed on your account will not contribute to this total.
+                    A lot of people have been emailing customer support to ask if they meet the threshold.</p>
+                    <p><b>We'd prefer if you could wait until the Early Access begins and see if you're immediately invited, and then contact support if you didn't get an invite but you believe your lifetime support exceeds $480 USD.</b></p>
             </div>
         </div>
         <button id="processData">Process Data</button>
@@ -40,6 +48,10 @@
         </table>
 
     </main>
+    <footer>
+        <p>Made by JackER</p>
+        <p class="disclaimer">This is a fan-made tool. Not affiliated with Grinding Gear Games or Path of Exile.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
