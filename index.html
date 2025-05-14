@@ -1,57 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Path of Exile Spending</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="https://web.poecdn.com/protected/image/favicon/ogimage.png?key=DDHQnVxwj0AxeMbsPiRoEQ">
+  <meta charset="UTF-8" />
+  <title>Contador al Sábado</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Path of Exile Spending</h1>
-    </header>
-    <main>
-        <div class="input-container">
-            <textarea id="dataInput" rows="10" cols="50" placeholder="Paste your data here..." autofocus></textarea>
-            <div class="summary">
-                <h3>Summary</h3>
-                <p>Total Spent: </p><span id="totalSpent" class="highlight-total">$0</span>
-            </div>
-            <div class="how-to-use">
-                <h3>How to use</h3>
-                <p>1. Copy your data from <a href="https://www.pathofexile.com/my-account/transactions" target="_blank" rel="noopener">the POE website.</a> (you can just CTRL+A -> CTRL+C the whole page)</p>
-                <p>2. Paste it in the text area</p>
-                <p>3. Click on the Process Data button</p>
-            </div>
-            <div class="forum">
-                <h3>Lifetime Purchases</h3>
-                <p>You can check FAQs by visiting <a href="https://www.pathofexile.com/forum/view-thread/3587981" target="_blank" rel="noopener">Announcements - Path of Exile 2 Early Access FAQ - Forum</a>.</p>
-                <p>
-                    Your valid purchases will include any purchase that was made with dollars instead of points. Points keys that were redeemed on your account will not contribute to this total.
-                    A lot of people have been emailing customer support to ask if they meet the threshold.</p>
-                    <p><b>We'd prefer if you could wait until the Early Access begins and see if you're immediately invited, and then contact support if you didn't get an invite but you believe your lifetime support exceeds $480 USD.</b></p>
-            </div>
-        </div>
-        <button id="processData">Process Data</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Supporter Pack</th>
-                    <th>Date</th>
-                    <th>Price (USD)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí JavaScript llenará los datos -->
-            </tbody>
-        </table>
+  <h1>¿Cuánto falta para el sábado?</h1>
+  <p id="contador">Calculando...</p>
 
-    </main>
-    <footer>
-        <p>Made by JackER</p>
-        <p class="disclaimer">This is a fan-made tool. Not affiliated with Grinding Gear Games or Path of Exile.</p>
-    </footer>
-    <script src="script.js"></script>
+  <script type="text/javascript">
+    async function main() {
+      let pyodide = await loadPyodide();
+      await pyodide.loadPackage("micropip");
+      const response = await fetch("main.py");
+      const code = await response.text();
+      pyodide.runPython(code);
+    }
+    main();
+  </script>
 </body>
 </html>
